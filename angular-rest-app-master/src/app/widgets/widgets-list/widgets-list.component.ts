@@ -7,8 +7,10 @@ import { Widget } from '../../shared';
   styleUrls: ['./widgets-list.component.css']
 })
 export class WidgetsListComponent {
+
   @Input() widgets: Widget[];
   @Input() readonly = false;
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
+
 }
