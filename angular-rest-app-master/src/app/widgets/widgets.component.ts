@@ -26,22 +26,22 @@ export class WidgetsComponent implements OnInit {
     this.currentWidget = widget;
   }
 
-  cancel(widget) {
-    this.resetCurrentWidget();
-  }
+  // cancel(widget) {
+  //   this.resetCurrentWidget();
+  // }
 
   getWidgets() {
     this.widgetsService.all()
       .subscribe(widgets => this.widgets = widgets);
   }
 
-  saveWidget(widget) {
-    if (!widget.id) {
-      this.createWidget(widget);
-    } else {
-      this.updateWidget(widget);
-    }
-  }
+  // saveWidget(widget) {
+  //   if (!widget.id) {
+  //     this.createWidget(widget);
+  //   } else {
+  //     this.updateWidget(widget);
+  //   }
+  // }
 
   createWidget(widget) {
     this.widgetsService.create(widget)
@@ -59,11 +59,11 @@ export class WidgetsComponent implements OnInit {
       });
   }
 
-  deleteWidget(widget) {
-    this.widgetsService.delete(widget)
-      .subscribe(response => {
-        this.getWidgets();
-        this.resetCurrentWidget();
-      });
-  }
+  // deleteWidget(widget) {
+  //   this.widgetsService.delete(widget)
+  //     .subscribe(response => {
+  //       this.getWidgets();
+  //       this.resetCurrentWidget();
+  //     });
+  // }
 }

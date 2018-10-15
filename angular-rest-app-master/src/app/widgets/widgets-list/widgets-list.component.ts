@@ -8,9 +8,9 @@ import { Widget } from '../../shared';
 })
 export class WidgetsListComponent {
 
-  @Input() widgets: Widget[];
-  @Input() readonly = false;
-  @Output() selected = new EventEmitter();
-  @Output() deleted = new EventEmitter();
+  // @Input() widgets: Widget[];
+  // @Input() readonly = false;
+  // @Output() selected = new EventEmitter();
+  // @Output() deleted = new EventEmitter();
 
 }
