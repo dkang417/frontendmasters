@@ -7,13 +7,13 @@ import { Widget } from '../../shared';
   styleUrls: ['./widget-detail.component.css']
 })
 export class WidgetDetailComponent {
-  // originalName: string;
-  // selectedWidget: Widget;
-  // @Output() saved = new EventEmitter();
-  // @Output() cancelled = new EventEmitter();
+  originalName: string;
+  selectedWidget: Widget;
+  @Output() saved = new EventEmitter();
+  @Output() cancelled = new EventEmitter();
 
-  // @Input() set widget(value: Widget){
-  //   if (value) { this.originalName = value.name; }
-  //   this.selectedWidget = Object.assign({}, value);
-  // }
+  @Input() set widget(value: Widget){
+    if (value) { this.originalName = value.name; }
+    this.selectedWidget = Object.assign({}, value);
+  }
 }
