@@ -1,0 +1,26 @@
+{
+  "name": "frontendmasters",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx,css,json}\" ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkang417/frontendmasters.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dkang417/frontendmasters/issues"
+  },
+  "homepage": "https://github.com/dkang417/frontendmasters#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.10.3",
+    "prettier": "^1.15.2"
+  }
+}
