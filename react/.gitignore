@@ -8,3 +8,4 @@ package-lock.json
 # IntelliJ
 *.iml
 /.idea
+.cache
