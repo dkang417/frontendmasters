@@ -24029,7 +24029,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Pet = function Pet(props) {
   // function components -stateless
-  return _react.default.createElement("div", {}, [_react.default.createElement("h1", {}, props.name), _react.default.createElement("h1", {}, props.animal), _react.default.createElement("h1", {}, props.breed)]);
+  //   return React.createElement("div", {}, [
+  //     React.createElement("h1", {}, props.name),
+  //     React.createElement("h1", {}, props.animal),
+  //     React.createElement("h1", {}, props.breed)
+  //   ]);
+  return _react.default.createElement("div", null, _react.default.createElement("h1", null, props.name), _react.default.createElement("h2", null, props.animal, " "), _react.default.createElement("h3", null, " ", props.breed, " "));
 };
 
 var _default = Pet;
@@ -24083,21 +24088,42 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {}, [_react.default.createElement("h1", {
-        onClick: this.handleTitleClick
-      }, "Adopt Me!"), _react.default.createElement(_Pet.default, {
+      // return React.createElement("div", {}, [
+      //   React.createElement(
+      //     "h1",
+      //     { onClick: this.handleTitleClick },
+      //     "Adopt Me!"
+      //   ),
+      //   React.createElement(Pet, {
+      //     name: "Luna",
+      //     animal: "dog",
+      //     breed: "Havanese"
+      //   }),
+      //   React.createElement(Pet, {
+      //     name: "Moji",
+      //     animal: "bird",
+      //     breed: "Cockatiel"
+      //   }),
+      //   React.createElement(Pet, {
+      //     name: "Felix",
+      //     animal: "cat",
+      //     breed: "mix"
+      //   })
+      // ]);
+      // using jsx
+      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Adopt Me Please! "), _react.default.createElement(_Pet.default, {
         name: "Luna",
-        animal: "dog",
+        animal: "Dog",
         breed: "Havanese"
       }), _react.default.createElement(_Pet.default, {
-        name: "Moji",
-        animal: "bird",
-        breed: "Cockatiel"
+        name: "Doink",
+        animal: "Bird",
+        breed: "Parrot"
       }), _react.default.createElement(_Pet.default, {
-        name: "Felix",
-        animal: "cat",
-        breed: "mix"
-      })]);
+        name: "Bonkers",
+        animal: "Cat",
+        breed: "Mix"
+      }));
     }
   }]);
 
