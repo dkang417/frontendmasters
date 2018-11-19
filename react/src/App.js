@@ -1,14 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-
-// function components -stateless
-const Pet = props => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, props.name),
-    React.createElement("h1", {}, props.animal),
-    React.createElement("h1", {}, props.breed)
-  ]);
-};
+import Pet from "./Pet";
 
 // class component
 class App extends React.Component {
@@ -29,12 +21,12 @@ class App extends React.Component {
         breed: "Havanese"
       }),
       React.createElement(Pet, {
-        name: "Pepper",
+        name: "Moji",
         animal: "bird",
         breed: "Cockatiel"
       }),
       React.createElement(Pet, {
-        name: "Doink",
+        name: "Felix",
         animal: "cat",
         breed: "mix"
       })
