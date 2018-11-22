@@ -27056,6 +27056,12 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Carousel).call(this, props)); //before getting api data we say loading true
 
+    _this.handleIndexClick = function (event) {
+      _this.setState({
+        active: +event.target.dataset.index
+      });
+    };
+
     _this.state = {
       photos: [],
       active: 0
@@ -27066,6 +27072,8 @@ function (_React$Component) {
   _createClass(Carousel, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$state = this.state,
           photos = _this$state.photos,
           active = _this$state.active;
@@ -27077,12 +27085,17 @@ function (_React$Component) {
       }), _react.default.createElement("div", {
         className: "carousel-smaller"
       }, photos.map(function (photo, index) {
-        return _react.default.createElement("img", {
-          key: photo.value,
-          src: photo.value,
-          className: index === active ? "active" : "",
-          alt: "animal thub"
-        });
+        return (
+          /* eslint-disable-next-line */
+          _react.default.createElement("img", {
+            onClick: _this2.handleIndexClick,
+            "data-index": index,
+            key: photo.value,
+            src: photo.value,
+            className: index === active ? "active" : "",
+            alt: "animal thub"
+          })
+        );
       })));
     }
   }], [{
@@ -27313,7 +27326,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62287" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50776" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
