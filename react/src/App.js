@@ -75,25 +75,27 @@ class App extends React.Component {
         <header>
           <Link to="/">Adopt Me!</Link>
         </header>
-        <Router>
-          <Results
-            path="/"
-            handleBreedChange={this.handleBreedChange}
-            handleAnimalChange={this.handleAnimalChange}
-            handleCityStateChange={this.handleCityStateChange}
-            getBreeds={this.getBreeds}
-            {...this.state}
-          />
-          <Details path="/details/:id" />
-          <SearchParams
-            path="/search-params"
-            handleBreedChange={this.handleBreedChange}
-            handleAnimalChange={this.handleAnimalChange}
-            handleCityStateChange={this.handleCityStateChange}
-            getBreeds={this.getBreeds}
-            {...this.state}
-          />
-        </Router>
+        <Provider value={this.state}>
+          <Router>
+            <Results
+              path="/"
+              handleBreedChange={this.handleBreedChange}
+              handleAnimalChange={this.handleAnimalChange}
+              handleCityStateChange={this.handleCityStateChange}
+              getBreeds={this.getBreeds}
+              {...this.state}
+            />
+            <Details path="/details/:id" />
+            <SearchParams
+              path="/search-params"
+              handleBreedChange={this.handleBreedChange}
+              handleAnimalChange={this.handleAnimalChange}
+              handleCityStateChange={this.handleCityStateChange}
+              getBreeds={this.getBreeds}
+              {...this.state}
+            />
+          </Router>
+        </Provider>
       </div>
     );
   }

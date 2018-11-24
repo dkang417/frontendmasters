@@ -27550,7 +27550,9 @@ function (_React$Component) {
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement("header", null, _react.default.createElement(_router.Link, {
         to: "/"
-      }, "Adopt Me!")), _react.default.createElement(_router.Router, null, _react.default.createElement(_Results.default, _extends({
+      }, "Adopt Me!")), _react.default.createElement(_searchContext.Provider, {
+        value: this.state
+      }, _react.default.createElement(_router.Router, null, _react.default.createElement(_Results.default, _extends({
         path: "/",
         handleBreedChange: this.handleBreedChange,
         handleAnimalChange: this.handleAnimalChange,
@@ -27564,7 +27566,7 @@ function (_React$Component) {
         handleAnimalChange: this.handleAnimalChange,
         handleCityStateChange: this.handleCityStateChange,
         getBreeds: this.getBreeds
-      }, this.state))));
+      }, this.state)))));
     }
   }]);
 
