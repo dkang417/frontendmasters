@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Link } from "@reach/router";
+import { Provider } from "./searchContext";
 import pf from "petfinder-client";
 import Results from "./Results";
 import Details from "./Details";
@@ -16,10 +17,14 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      cityState: "Seattle, WA",
+      cityState: "new york, NY",
       animal: "",
       breed: "",
-      breeds: []
+      breeds: [],
+      handleAnimalChange: this.handleAnimalChange,
+      handleBreedChange: this.handleBreedChange,
+      handleLocationChange: this.handleLocationChange,
+      getBreeds: this.getBreeds
     };
   }
   handleCityStateChange = event => {
