@@ -26880,13 +26880,19 @@ function (_React$Component) {
         });
       }
 
+      var hero = "http://placecorgi.com/300/300";
+
+      if (photos[0] && photos[0].value) {
+        hero = photos[0].value;
+      }
+
       return _react.default.createElement(_router.Link, {
         to: "/details/".concat(id),
         className: "pet"
       }, _react.default.createElement("div", {
         className: "image-container"
       }, _react.default.createElement("img", {
-        src: photos[0].value,
+        src: hero,
         alt: name
       })), _react.default.createElement("div", {
         className: "info"
