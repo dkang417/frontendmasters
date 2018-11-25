@@ -1,8 +1,8 @@
 import React from "react";
 import Pet from "./Pet";
 import pf from "petfinder-client";
-import SearchBox from "./searchBox";
-import { Consumer } from "./searchContext";
+import SearchBox from "./SearchBox";
+import { Consumer } from "./SearchContext";
 
 //from our .env file
 const petfinder = pf({

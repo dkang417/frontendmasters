@@ -1,6 +1,6 @@
 import React from "react";
 import { ANIMALS } from "petfinder-client";
-import { Consumer } from "./searchContext";
+import { Consumer } from "./SearchContext";
 
 class Search extends React.Component {
   handleFormSubmit = event => {
