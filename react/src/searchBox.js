@@ -2,7 +2,7 @@ import React from "react";
 import { ANIMALS } from "petfinder-client";
 import { Consumer } from "./searchContext";
 
-class Search extends React.Component {
+class SearchBox extends React.Component {
   render() {
     return (
       <Consumer>
@@ -18,4 +18,4 @@ class Search extends React.Component {
   }
 }
 
-export default Search;
+export default SearchBox;

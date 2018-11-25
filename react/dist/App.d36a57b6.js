@@ -26358,35 +26358,7 @@ var createRoute = function createRoute(basepath) {
 var shouldNavigate = function shouldNavigate(event) {
   return !event.defaultPrevented && event.button === 0 && !(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 }; ////////////////////////////////////////////////////////////////////////
-},{"react":"../node_modules/react/index.js","warning":"../node_modules/warning/browser.js","prop-types":"../node_modules/prop-types/index.js","invariant":"../node_modules/invariant/browser.js","create-react-context":"../node_modules/create-react-context/lib/index.js","react-lifecycles-compat":"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js","./lib/utils":"../node_modules/@reach/router/es/lib/utils.js","./lib/history":"../node_modules/@reach/router/es/lib/history.js"}],"searchContext.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Consumer = exports.Provider = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// provider and consumer -portal of information
-var searchContext = _react.default.createContext({
-  location: "new york, NY",
-  animal: "",
-  breed: "",
-  breeds: [],
-  handleAnimalChange: function handleAnimalChange() {},
-  handleBreedChange: function handleBreedChange() {},
-  handleLocationChange: function handleLocationChange() {},
-  getBreeds: function getBreeds() {}
-});
-
-var Provider = searchContext.Provider;
-exports.Provider = Provider;
-var Consumer = searchContext.Consumer;
-exports.Consumer = Consumer;
-},{"react":"../node_modules/react/index.js"}],"../node_modules/process/browser.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","warning":"../node_modules/warning/browser.js","prop-types":"../node_modules/prop-types/index.js","invariant":"../node_modules/invariant/browser.js","create-react-context":"../node_modules/create-react-context/lib/index.js","react-lifecycles-compat":"../node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js","./lib/utils":"../node_modules/@reach/router/es/lib/utils.js","./lib/history":"../node_modules/@reach/router/es/lib/history.js"}],"../node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -27105,10 +27077,16 @@ function (_React$Component) {
       var _this$state = this.state,
           photos = _this$state.photos,
           active = _this$state.active;
+      var hero = "http://placecorgi.com/300/300";
+
+      if (photos[active] && photos[active].value) {
+        hero = photos[active].value;
+      }
+
       return _react.default.createElement("div", {
         className: "carousel"
       }, _react.default.createElement("img", {
-        src: photos[active].value,
+        src: hero,
         alt: "animal"
       }), _react.default.createElement("div", {
         className: "carousel-smaller"
@@ -27121,7 +27099,7 @@ function (_React$Component) {
             key: photo.value,
             src: photo.value,
             className: index === active ? "active" : "",
-            alt: "animal thumnbail"
+            alt: "animal thumbnail"
           })
         );
       })));
@@ -27130,22 +27108,6 @@ function (_React$Component) {
     key: "getDerivedStateFromProps",
     value: function getDerivedStateFromProps(_ref) {
       var media = _ref.media;
-      var photos = [];
-
-      if (media && media.photos && media.photos.photo) {
-        photos = media.photos.photo.filter(function (photo) {
-          return photo["@size"] === "pn";
-        });
-      }
-
-      return {
-        photos: photos
-      };
-    }
-  }, {
-    key: "getDerivedStateFromProps",
-    value: function getDerivedStateFromProps(_ref2) {
-      var media = _ref2.media;
       var photos = [];
 
       if (media && media.photos && media.photos.photo) {
@@ -27431,7 +27393,35 @@ function (_React$Component) {
 
 var _default = SearchParams;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","petfinder-client":"../node_modules/petfinder-client/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","petfinder-client":"../node_modules/petfinder-client/index.js"}],"SearchContext.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Consumer = exports.Provider = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// provider and consumer -portal of information
+var searchContext = _react.default.createContext({
+  location: "new york, NY",
+  animal: "",
+  breed: "",
+  breeds: [],
+  handleAnimalChange: function handleAnimalChange() {},
+  handleBreedChange: function handleBreedChange() {},
+  handleLocationChange: function handleLocationChange() {},
+  getBreeds: function getBreeds() {}
+});
+
+var Provider = searchContext.Provider;
+exports.Provider = Provider;
+var Consumer = searchContext.Consumer;
+exports.Consumer = Consumer;
+},{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -27439,8 +27429,6 @@ var _react = _interopRequireDefault(require("react"));
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _router = require("@reach/router");
-
-var _searchContext = require("./searchContext");
 
 var _petfinderClient = _interopRequireDefault(require("petfinder-client"));
 
@@ -27450,7 +27438,7 @@ var _Details = _interopRequireDefault(require("./Details"));
 
 var _SearchParams = _interopRequireDefault(require("./SearchParams"));
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _SearchContext = require("./SearchContext");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27489,9 +27477,9 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
 
-    _this.handleCityStateChange = function (event) {
+    _this.handleLocationChange = function (event) {
       _this.setState({
-        cityState: event.target.value
+        location: event.target.value
       });
     };
 
@@ -27508,7 +27496,7 @@ function (_React$Component) {
     };
 
     _this.state = {
-      cityState: "new york, NY",
+      location: "Seattle, WA",
       animal: "",
       breed: "",
       breeds: [],
@@ -27550,31 +27538,28 @@ function (_React$Component) {
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement("header", null, _react.default.createElement(_router.Link, {
         to: "/"
-      }, "Adopt Me!")), _react.default.createElement(_searchContext.Provider, {
+      }, "Adopt Me!"), _react.default.createElement(_router.Link, {
+        to: "/search-params"
+      }, _react.default.createElement("span", {
+        "aria-label": "search",
+        role: "img"
+      }, "\uD83D\uDD0D"))), _react.default.createElement(_SearchContext.Provider, {
         value: this.state
-      }, _react.default.createElement(_router.Router, null, _react.default.createElement(_Results.default, _extends({
-        path: "/",
-        handleBreedChange: this.handleBreedChange,
-        handleAnimalChange: this.handleAnimalChange,
-        handleCityStateChange: this.handleCityStateChange,
-        getBreeds: this.getBreeds
-      }, this.state)), _react.default.createElement(_Details.default, {
+      }, _react.default.createElement(_router.Router, null, _react.default.createElement(_Results.default, {
+        path: "/"
+      }), _react.default.createElement(_Details.default, {
         path: "/details/:id"
-      }), _react.default.createElement(_SearchParams.default, _extends({
-        path: "/search-params",
-        handleBreedChange: this.handleBreedChange,
-        handleAnimalChange: this.handleAnimalChange,
-        handleCityStateChange: this.handleCityStateChange,
-        getBreeds: this.getBreeds
-      }, this.state)))));
+      }), _react.default.createElement(_SearchParams.default, {
+        path: "/search-params"
+      }))));
     }
   }]);
 
   return App;
 }(_react.default.Component);
 
-_reactDom.default.render(_react.default.createElement(App), document.getElementById("root"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./searchContext":"searchContext.js","petfinder-client":"../node_modules/petfinder-client/index.js","./Results":"Results.js","./Details":"Details.js","./SearchParams":"SearchParams.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+_reactDom.default.render(_react.default.createElement(App, null), document.getElementById("root"));
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","petfinder-client":"../node_modules/petfinder-client/index.js","./Results":"Results.js","./Details":"Details.js","./SearchParams":"SearchParams.js","./SearchContext":"SearchContext.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

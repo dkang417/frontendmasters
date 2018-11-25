@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Link } from "@reach/router";
-import { Provider } from "./searchContext";
 import pf from "petfinder-client";
 import Results from "./Results";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
+import { Provider } from "./SearchContext";
 
 const petfinder = pf({
   key: process.env.API_KEY,
@@ -17,7 +17,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      cityState: "new york, NY",
+      location: "Seattle, WA",
       animal: "",
       breed: "",
       breeds: [],
@@ -27,9 +27,9 @@ class App extends React.Component {
       getBreeds: this.getBreeds
     };
   }
-  handleCityStateChange = event => {
+  handleLocationChange = event => {
     this.setState({
-      cityState: event.target.value
+      location: event.target.value
     });
   };
   handleAnimalChange = event => {
@@ -74,26 +74,17 @@ class App extends React.Component {
       <div>
         <header>
           <Link to="/">Adopt Me!</Link>
+          <Link to="/search-params">
+            <span aria-label="search" role="img">
+              🔍
+            </span>
+          </Link>
         </header>
         <Provider value={this.state}>
           <Router>
-            <Results
-              path="/"
-              handleBreedChange={this.handleBreedChange}
-              handleAnimalChange={this.handleAnimalChange}
-              handleCityStateChange={this.handleCityStateChange}
-              getBreeds={this.getBreeds}
-              {...this.state}
-            />
+            <Results path="/" />
             <Details path="/details/:id" />
-            <SearchParams
-              path="/search-params"
-              handleBreedChange={this.handleBreedChange}
-              handleAnimalChange={this.handleAnimalChange}
-              handleCityStateChange={this.handleCityStateChange}
-              getBreeds={this.getBreeds}
-              {...this.state}
-            />
+            <SearchParams path="/search-params" />
           </Router>
         </Provider>
       </div>
@@ -101,4 +92,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
