@@ -26884,7 +26884,9 @@ function (_React$Component) {
 
       if (photos[0] && photos[0].value) {
         hero = photos[0].value;
-      }
+      } // just javascript- easier to read on a new line
+      // return React.createElement("div", {}, []); this is same as below but using jsx.babel transforms
+
 
       return _react.default.createElement(_router.Link, {
         to: "/details/".concat(id),
@@ -27639,7 +27641,7 @@ function (_React$Component) {
     };
 
     _this.state = {
-      location: "Seattle, WA",
+      location: "new york, NY",
       animal: "",
       breed: "",
       breeds: [],
@@ -27675,7 +27677,9 @@ function (_React$Component) {
           breeds: []
         });
       }
-    }
+    } // just javascript- easier to read on a new line
+    // return React.createElement("div", {}, []); this is same as below but using jsx.babel transforms
+
   }, {
     key: "render",
     value: function render() {

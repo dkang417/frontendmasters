@@ -17,7 +17,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      location: "Seattle, WA",
+      location: "new york, NY",
       animal: "",
       breed: "",
       breeds: [],
@@ -69,6 +69,8 @@ class App extends React.Component {
       });
     }
   }
+  // just javascript- easier to read on a new line
+  // return React.createElement("div", {}, []); this is same as below but using jsx.babel transforms
   render() {
     return (
       <div>

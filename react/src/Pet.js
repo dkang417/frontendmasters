@@ -14,7 +14,8 @@ class Pet extends React.Component {
     if (photos[0] && photos[0].value) {
       hero = photos[0].value;
     }
-
+    // just javascript- easier to read on a new line
+    // return React.createElement("div", {}, []); this is same as below but using jsx.babel transforms
     return (
       <Link to={`/details/${id}`} className="pet">
         <div className="image-container">
