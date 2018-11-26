@@ -40,7 +40,9 @@ class Details extends React.Component {
         navigate("/");
       });
   }
+
   toggleModal = () => this.setState({ showModal: !this.state.showModal });
+
   render() {
     if (this.state.loading) {
       return <h1>loading … </h1>;

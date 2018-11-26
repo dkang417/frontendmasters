@@ -26865,6 +26865,7 @@ function (_React$Component) {
   _createClass(Pet, [{
     key: "render",
     value: function render() {
+      // destructuring - same as this.props.name
       var _this$props = this.props,
           name = _this$props.name,
           animal = _this$props.animal,
