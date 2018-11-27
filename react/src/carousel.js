@@ -20,8 +20,10 @@ class Carousel extends React.Component {
     return { photos };
   }
   // click on image from gallery
+  // arrow function refers to whatever lexical scope its in. doesnt create a new scope outside
   handleIndexClick = event => {
     this.setState({
+      // + takes a string and makes it a number. coercion
       active: +event.target.dataset.index
     });
   };

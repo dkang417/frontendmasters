@@ -27224,6 +27224,7 @@ function (_React$Component) {
 
     _this.handleIndexClick = function (event) {
       _this.setState({
+        // + takes a string and makes it a number. coercion
         active: +event.target.dataset.index
       });
     };
@@ -27287,6 +27288,7 @@ function (_React$Component) {
         photos: photos
       };
     } // click on image from gallery
+    // arrow function refers to whatever lexical scope its in. doesnt create a new scope outside
 
   }]);
 
