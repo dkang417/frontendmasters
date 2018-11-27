@@ -11,6 +11,7 @@ const petfinder = pf({
 
 class Details extends React.Component {
   state = { loading: true, showModal: false };
+
   componentDidMount() {
     petfinder.pet
       .get({
