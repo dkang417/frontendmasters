@@ -27233,7 +27233,8 @@ function (_React$Component) {
       active: 0
     };
     return _this;
-  }
+  } // new static method - takes props and updates state
+
 
   _createClass(Carousel, [{
     key: "render",
@@ -27285,7 +27286,8 @@ function (_React$Component) {
       return {
         photos: photos
       };
-    }
+    } // click on image from gallery
+
   }]);
 
   return Carousel;

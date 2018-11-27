@@ -9,15 +9,17 @@ class Carousel extends React.Component {
       active: 0
     };
   }
+  // new static method - takes props and updates state
   static getDerivedStateFromProps({ media }) {
     let photos = [];
+
     if (media && media.photos && media.photos.photo) {
       photos = media.photos.photo.filter(photo => photo["@size"] === "pn");
     }
 
     return { photos };
   }
-
+  // click on image from gallery
   handleIndexClick = event => {
     this.setState({
       active: +event.target.dataset.index
