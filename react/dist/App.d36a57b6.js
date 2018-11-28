@@ -27636,7 +27636,8 @@ function (_React$Component) {
     _this.handleAnimalChange = function (event) {
       _this.setState({
         animal: event.target.value
-      }, _this.getBreeds);
+      }, // this gets called after setstate
+      _this.getBreeds);
     };
 
     _this.handleBreedChange = function (event) {
@@ -27660,6 +27661,7 @@ function (_React$Component) {
 
   _createClass(App, [{
     key: "getBreeds",
+    // when someone selects new animal
     value: function getBreeds() {
       var _this2 = this;
 

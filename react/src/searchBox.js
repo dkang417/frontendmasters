@@ -1,4 +1,5 @@
 import React from "react";
+// array of strings from petfinder client
 import { ANIMALS } from "petfinder-client";
 import { Consumer } from "./SearchContext";
 

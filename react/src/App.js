@@ -32,11 +32,13 @@ class App extends React.Component {
       location: event.target.value
     });
   };
+
   handleAnimalChange = event => {
     this.setState(
       {
         animal: event.target.value
       },
+      // this gets called after setstate
       this.getBreeds
     );
   };
@@ -45,6 +47,7 @@ class App extends React.Component {
       breed: event.target.value
     });
   };
+  // when someone selects new animal
   getBreeds() {
     if (this.state.animal) {
       petfinder.breed
