@@ -26920,12 +26920,14 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// provider and consumer -portal of information
+// provider and consumer -portal of information no matter how much distance is between the 2
 var searchContext = _react.default.createContext({
+  // describe whatyour data lookslike
   location: "new york, NY",
   animal: "",
   breed: "",
   breeds: [],
+  // methods so the consumer side can edit
   handleAnimalChange: function handleAnimalChange() {},
   handleBreedChange: function handleBreedChange() {},
   handleLocationChange: function handleLocationChange() {},
