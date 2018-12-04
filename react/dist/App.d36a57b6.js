@@ -27615,7 +27615,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var petfinder = (0, _petfinderClient.default)({
   key: "e8bf1b65e4bce3d8e703c6fdf36e2a40",
   secret: "c158c1884cceab5dc51d710e5e3ba5fb"
-});
+}); // we use the  state on App for the provider - Context reads from the app state the portal using consumer
 
 var App =
 /*#__PURE__*/
@@ -27653,6 +27653,7 @@ function (_React$Component) {
       animal: "",
       breed: "",
       breeds: [],
+      // adding functions also inside state to provide into the Context
       handleAnimalChange: _this.handleAnimalChange,
       handleBreedChange: _this.handleBreedChange,
       handleLocationChange: _this.handleLocationChange,

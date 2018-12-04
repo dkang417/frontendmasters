@@ -5,13 +5,14 @@ import pf from "petfinder-client";
 import Results from "./Results";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
+
 import { Provider } from "./SearchContext";
 
 const petfinder = pf({
   key: process.env.API_KEY,
   secret: process.env.API_SECRET
 });
-
+// we use the  state on App for the provider - Context reads from the app state the portal using consumer
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +22,7 @@ class App extends React.Component {
       animal: "",
       breed: "",
       breeds: [],
+      // adding functions also inside state to provide into the Context
       handleAnimalChange: this.handleAnimalChange,
       handleBreedChange: this.handleBreedChange,
       handleLocationChange: this.handleLocationChange,
@@ -85,6 +87,7 @@ class App extends React.Component {
             </span>
           </Link>
         </header>
+        {/* PROVIDER - anything inside provider-all the state you can access, using the Consumer anywhere */}
         <Provider value={this.state}>
           <Router>
             <Results path="/" />
