@@ -26932,9 +26932,11 @@ var searchContext = _react.default.createContext({
   handleBreedChange: function handleBreedChange() {},
   handleLocationChange: function handleLocationChange() {},
   getBreeds: function getBreeds() {}
-});
+}); // provider is the  entrance portal of Context
 
-var Provider = searchContext.Provider;
+
+var Provider = searchContext.Provider; // consumer exit portal of Context
+
 exports.Provider = Provider;
 var Consumer = searchContext.Consumer;
 exports.Consumer = Consumer;
@@ -27002,45 +27004,47 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      return _react.default.createElement(_SearchContext.Consumer, null, function (context) {
-        return _react.default.createElement("div", {
-          className: "search-params"
-        }, _react.default.createElement("form", {
-          onSubmit: _this2.handleFormSubmit
-        }, _react.default.createElement("label", {
-          htmlFor: "location"
-        }, "Location", _react.default.createElement("input", {
-          id: "location",
-          onChange: context.handleLocationChange,
-          value: context.location,
-          placeholder: "Location"
-        })), _react.default.createElement("label", {
-          htmlFor: "animal"
-        }, "Animal", _react.default.createElement("select", {
-          id: "animal",
-          value: context.animal,
-          onChange: context.handleAnimalChange,
-          onBlur: context.handleAnimalChange
-        }, _react.default.createElement("option", null), _petfinderClient.ANIMALS.map(function (animal) {
-          return _react.default.createElement("option", {
-            key: animal,
-            value: animal
-          }, animal);
-        }))), _react.default.createElement("label", {
-          htmlFor: "breed"
-        }, "Breed", _react.default.createElement("select", {
-          disabled: !context.breeds.length,
-          id: "breed",
-          value: context.breed,
-          onChange: context.handleBreedChange,
-          onBlur: context.handleBreedChange
-        }, _react.default.createElement("option", null), context.breeds.map(function (breed) {
-          return _react.default.createElement("option", {
-            key: breed,
-            value: breed
-          }, breed);
-        }))), _react.default.createElement("button", null, "Submit")));
-      });
+      return (// wrap everything inside a consumer to be able to use everything from the App provider
+        _react.default.createElement(_SearchContext.Consumer, null, function (context) {
+          return _react.default.createElement("div", {
+            className: "search-params"
+          }, _react.default.createElement("form", {
+            onSubmit: _this2.handleFormSubmit
+          }, _react.default.createElement("label", {
+            htmlFor: "location"
+          }, "Location", _react.default.createElement("input", {
+            id: "location",
+            onChange: context.handleLocationChange,
+            value: context.location,
+            placeholder: "Location"
+          })), _react.default.createElement("label", {
+            htmlFor: "animal"
+          }, "Animal", _react.default.createElement("select", {
+            id: "animal",
+            value: context.animal,
+            onChange: context.handleAnimalChange,
+            onBlur: context.handleAnimalChange
+          }, _react.default.createElement("option", null), _petfinderClient.ANIMALS.map(function (animal) {
+            return _react.default.createElement("option", {
+              key: animal,
+              value: animal
+            }, animal);
+          }))), _react.default.createElement("label", {
+            htmlFor: "breed"
+          }, "Breed", _react.default.createElement("select", {
+            disabled: !context.breeds.length,
+            id: "breed",
+            value: context.breed,
+            onChange: context.handleBreedChange,
+            onBlur: context.handleBreedChange
+          }, _react.default.createElement("option", null), context.breeds.map(function (breed) {
+            return _react.default.createElement("option", {
+              key: breed,
+              value: breed
+            }, breed);
+          }))), _react.default.createElement("button", null, "Submit")));
+        })
+      );
     }
   }]);
 
@@ -27743,7 +27747,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58399" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64521" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

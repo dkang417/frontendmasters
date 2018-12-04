@@ -1,6 +1,8 @@
 import React from "react";
 // array of strings from petfinder client
 import { ANIMALS } from "petfinder-client";
+
+// using the consumer
 import { Consumer } from "./SearchContext";
 
 class Search extends React.Component {
@@ -10,7 +12,9 @@ class Search extends React.Component {
   };
   render() {
     return (
+      // wrap everything inside a consumer to be able to use everything from the App provider
       <Consumer>
+        {/* context is everything from app state */}
         {context => (
           <div className="search-params">
             <form onSubmit={this.handleFormSubmit}>
@@ -23,6 +27,7 @@ class Search extends React.Component {
                   placeholder="Location"
                 />
               </label>
+
               <label htmlFor="animal">
                 Animal
                 <select
@@ -39,6 +44,7 @@ class Search extends React.Component {
                   ))}
                 </select>
               </label>
+
               <label htmlFor="breed">
                 Breed
                 <select

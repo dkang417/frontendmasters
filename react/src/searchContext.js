@@ -14,5 +14,7 @@ const searchContext = React.createContext({
   getBreeds() {}
 });
 
+// provider is the  entrance portal of Context
 export const Provider = searchContext.Provider;
+// consumer exit portal of Context
 export const Consumer = searchContext.Consumer;
