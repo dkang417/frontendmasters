@@ -1,6 +1,7 @@
 import React from "react";
 import { createPortal } from "react-dom";
 
+// grab modal from the dom in index.html
 const modalRoot = document.getElementById("modal");
 
 class Modal extends React.Component {
@@ -13,6 +14,7 @@ class Modal extends React.Component {
     modalRoot.appendChild(this.el);
   }
 
+  // cleaning up memory to prevent memory leaks
   componentWillUnmount() {
     modalRoot.removeChild(this.el);
   }
