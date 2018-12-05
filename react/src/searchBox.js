@@ -13,6 +13,7 @@ class Search extends React.Component {
   render() {
     return (
       // wrap everything inside a consumer to be able to use everything from the App provider
+      // this is the more explicit way context is only used in the render
       <Consumer>
         {/* context is everything from app state */}
         {context => (

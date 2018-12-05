@@ -82,6 +82,7 @@ class App extends React.Component {
         <header>
           <Link to="/">Adopt Me!</Link>
           <Link to="/search-params">
+            {/* emoji   */}
             <span aria-label="search" role="img">
               🔍
             </span>

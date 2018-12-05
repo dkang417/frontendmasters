@@ -81,6 +81,7 @@ class Results extends React.Component {
 
 export default function ResultsWithContext(props) {
   return (
+    // we have to do it this way because context is used in the life cycle methods
     <Consumer>
       {context => <Results {...props} searchParams={context} />}
     </Consumer>
