@@ -27005,6 +27005,7 @@ function (_React$Component) {
       var _this2 = this;
 
       return (// wrap everything inside a consumer to be able to use everything from the App provider
+        // this is the more explicit way context is only used in the render
         _react.default.createElement(_SearchContext.Consumer, null, function (context) {
           return _react.default.createElement("div", {
             className: "search-params"
@@ -27180,11 +27181,13 @@ function (_React$Component) {
 }(_react.default.Component);
 
 function ResultsWithContext(props) {
-  return _react.default.createElement(_SearchContext.Consumer, null, function (context) {
-    return _react.default.createElement(Results, _extends({}, props, {
-      searchParams: context
-    }));
-  });
+  return (// we have to do it this way because context is used in the life cycle methods
+    _react.default.createElement(_SearchContext.Consumer, null, function (context) {
+      return _react.default.createElement(Results, _extends({}, props, {
+        searchParams: context
+      }));
+    })
+  );
 }
 },{"react":"../node_modules/react/index.js","./Pet":"Pet.js","petfinder-client":"../node_modules/petfinder-client/index.js","./SearchBox":"SearchBox.js","./SearchContext":"SearchContext.js"}],"Carousel.js":[function(require,module,exports) {
 "use strict";
@@ -27335,6 +27338,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+// grab modal from the dom in index.html
 var modalRoot = document.getElementById("modal");
 
 var Modal =
@@ -27356,7 +27360,8 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       modalRoot.appendChild(this.el);
-    }
+    } // cleaning up memory to prevent memory leaks
+
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
@@ -27747,7 +27752,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64521" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54755" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
