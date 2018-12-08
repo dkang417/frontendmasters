@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
 import pf from "petfinder-client";
 import Results from "./Results";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
-
+import NavBar from "./NavBar";
 import { Provider } from "./SearchContext";
 
 const petfinder = pf({
@@ -79,15 +79,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <header>
-          <Link to="/">Adopt Me!</Link>
-          <Link to="/search-params">
-            {/* emoji   */}
-            <span aria-label="search" role="img">
-              🔍
-            </span>
-          </Link>
-        </header>
+        <NavBar />
         {/* PROVIDER - anything inside provider-all the state you can access, using the Consumer anywhere */}
         <Provider value={this.state}>
           <Router>

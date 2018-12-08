@@ -27582,7 +27582,9 @@ function (_React$Component) {
 
 var _default = Search;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./SearchBox":"SearchBox.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./SearchBox":"SearchBox.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"NavBar.js":[function(require,module,exports) {
+
+},{}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -27598,6 +27600,8 @@ var _Results = _interopRequireDefault(require("./Results"));
 var _Details = _interopRequireDefault(require("./Details"));
 
 var _SearchParams = _interopRequireDefault(require("./SearchParams"));
+
+var _NavBar = _interopRequireDefault(require("./NavBar"));
 
 var _SearchContext = require("./SearchContext");
 
@@ -27702,14 +27706,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("header", null, _react.default.createElement(_router.Link, {
-        to: "/"
-      }, "Adopt Me!"), _react.default.createElement(_router.Link, {
-        to: "/search-params"
-      }, _react.default.createElement("span", {
-        "aria-label": "search",
-        role: "img"
-      }, "\uD83D\uDD0D"))), _react.default.createElement(_SearchContext.Provider, {
+      return _react.default.createElement("div", null, _react.default.createElement(_NavBar.default, null), _react.default.createElement(_SearchContext.Provider, {
         value: this.state
       }, _react.default.createElement(_router.Router, null, _react.default.createElement(_Results.default, {
         path: "/"
@@ -27725,7 +27722,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById("root"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","petfinder-client":"../node_modules/petfinder-client/index.js","./Results":"Results.js","./Details":"Details.js","./SearchParams":"SearchParams.js","./SearchContext":"SearchContext.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","petfinder-client":"../node_modules/petfinder-client/index.js","./Results":"Results.js","./Details":"Details.js","./SearchParams":"SearchParams.js","./NavBar":"NavBar.js","./SearchContext":"SearchContext.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
