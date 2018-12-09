@@ -80,6 +80,7 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
+
         {/* PROVIDER - anything inside provider-all the state you can access, using the Consumer anywhere */}
         <Provider value={this.state}>
           <Router>
