@@ -27484,7 +27484,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.state.loading) {
-        return _react.default.createElement("h1", null, "loading \u2026 ");
+        return _react.default.createElement("h1", null, "not loading lol ");
       }
 
       var _this$state = this.state,
@@ -27582,12 +27582,7 @@ function (_React$Component) {
 
 var _default = Search;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./SearchBox":"SearchBox.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"../node_modules/react-emotion/index.js":[function(require,module,exports) {
-throw new Error(
-  'The package "react-emotion" has been replaced by "@emotion/styled" in version 10. See https://emotion.sh/docs/migrating-to-emotion-10 for more information on migrating.'
-);
-
-},{}],"NavBar.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./SearchBox":"SearchBox.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"NavBar.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27599,26 +27594,10 @@ var _react = _interopRequireDefault(require("react"));
 
 var _router = require("@reach/router");
 
-var _reactEmotion = _interopRequireDefault(require("react-emotion"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  background-color: #333;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = (0, _reactEmotion.default)("header")(_templateObject());
-
 var NavBar = function NavBar() {
-  return _react.default.createElement(Container, null, _react.default.createElement(_router.Link, {
+  return _react.default.createElement("header", null, _react.default.createElement(_router.Link, {
     to: "/"
   }, "Adopt Me!"), _react.default.createElement(_router.Link, {
     to: "/search-params"
@@ -27630,7 +27609,7 @@ var NavBar = function NavBar() {
 
 var _default = NavBar;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","react-emotion":"../node_modules/react-emotion/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -27795,7 +27774,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49956" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55888" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

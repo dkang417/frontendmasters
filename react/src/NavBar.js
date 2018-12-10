@@ -1,16 +1,8 @@
 import React from "react";
-import { Link } from "_@reach/router";
-import styled from "react-emotion";
-
-const Container = styled("header")`
-  background-color: #333;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-`;
+import { Link } from "@reach/router";
 
 const NavBar = () => (
-  <Container>
+  <header>
     <Link to="/">Adopt Me!</Link>
     <Link to="/search-params">
       {/* emoji   */}
@@ -18,7 +10,7 @@ const NavBar = () => (
         🔍
       </span>
     </Link>
-  </Container>
+  </header>
 );
 
 export default NavBar;
