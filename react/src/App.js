@@ -2,9 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
 import pf from "petfinder-client";
-import Results from "./Results";
-import Details from "./Details";
-import SearchParams from "./SearchParams";
+import Loadable from "react-loadable";
 import NavBar from "./NavBar";
 import { Provider } from "./SearchContext";
 
@@ -12,6 +10,28 @@ const petfinder = pf({
   key: process.env.API_KEY,
   secret: process.env.API_SECRET
 });
+
+const LoadableDetails = Loadable({
+  loader: () => import("./Details"),
+  loading() {
+    return <h1>loading split out code.. </h1>;
+  }
+});
+
+const LoadableResults = Loadable({
+  loader: () => import("./Results"),
+  loading() {
+    return <h1>loading split out code.. </h1>;
+  }
+});
+
+const LoadableSearchParams = Loadable({
+  loader: () => import("./SearchParams"),
+  loading() {
+    return <h1>loading split out code.. </h1>;
+  }
+});
+
 // we use the  state on App for the provider - Context reads from the app state the portal using consumer
 class App extends React.Component {
   constructor(props) {
@@ -84,9 +104,9 @@ class App extends React.Component {
         {/* PROVIDER - anything inside provider-all the state you can access, using the Consumer anywhere */}
         <Provider value={this.state}>
           <Router>
-            <Results path="/" />
-            <Details path="/details/:id" />
-            <SearchParams path="/search-params" />
+            <LoadableResults path="/" />
+            <LoadableDetails path="/details/:id" />
+            <LoadableSearchParams path="/search-params" />
           </Router>
         </Provider>
       </div>
