@@ -5,19 +5,22 @@ import pf from "petfinder-client";
 import Loadable from "react-loadable";
 import NavBar from "./NavBar";
 import { Provider } from "./SearchContext";
+import { Provider as ReduxProvider } from "react-redux";
+import store from "./store";
 
 const petfinder = pf({
   key: process.env.API_KEY,
   secret: process.env.API_SECRET
 });
 
+// loadable
 const LoadableDetails = Loadable({
   loader: () => import("./Details"),
   loading() {
     return <h1>loading split out code.. </h1>;
   }
 });
-
+// loadable
 const LoadableResults = Loadable({
   loader: () => import("./Results"),
   loading() {
@@ -100,15 +103,16 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-
-        {/* PROVIDER - anything inside provider-all the state you can access, using the Consumer anywhere */}
-        <Provider value={this.state}>
-          <Router>
-            <LoadableResults path="/" />
-            <LoadableDetails path="/details/:id" />
-            <LoadableSearchParams path="/search-params" />
-          </Router>
-        </Provider>
+        <ReduxProvider store={store}>
+          {/* PROVIDER - anything inside provider-all the state you can access, using the Consumer anywhere */}
+          <Provider value={this.state}>
+            <Router>
+              <LoadableResults path="/" />
+              <LoadableDetails path="/details/:id" />
+              <LoadableSearchParams path="/search-params" />
+            </Router>
+          </Provider>
+        </ReduxProvider>
       </div>
     );
   }
