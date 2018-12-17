@@ -2,7 +2,7 @@ import React from "react";
 import Pet from "./Pet";
 import pf from "petfinder-client";
 import SearchBox from "./SearchBox";
-import { Consumer } from "./SearchContext";
+
 import { connect } from "react-redux";
 
 //from our .env file
@@ -29,8 +29,9 @@ class Results extends React.Component {
       .find({
         output: "full",
         location: this.props.location,
-        animal: this.props.searchParams.animal,
-        breed: this.props.searchParams.breed
+        animal: this.props.animal,
+        breed: this.props.breed,
+        output: "full"
       })
       .then(data => {
         let pets;
@@ -80,19 +81,12 @@ class Results extends React.Component {
   }
 }
 
-function ResultsWithContext(props) {
-  return (
-    // we have to do it this way because context is used in the life cycle methods
-    <Consumer>
-      {context => <Results {...props} searchParams={context} />}
-    </Consumer>
-  );
-}
-
-const mapStateToProps = ({ location }) => {
+const mapStateToProps = ({ location, breed, animal }) => {
   return {
-    location
+    location,
+    animal,
+    breed
   };
 };
 
-export default connect(mapStateToProps)(ResultsWithContext);
+export default connect(mapStateToProps)(Results);

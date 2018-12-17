@@ -5,8 +5,10 @@ const petfinder = pf({
   secret: process.env.API_SECRET
 });
 
+// ajax asyncrhonous actions - use thunk
 export default function getBreeds() {
   //  the function that returns a function is the thunk
+  // needs dispatch and getState which comes from Redux
   return function getBreedsThunk(dispatch, getState) {
     const { animal } = getState();
 
